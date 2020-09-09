@@ -4,8 +4,14 @@ import Example from './example';
 import './App.css'
 
 function Todos(props) {
+const [state,setState] = useState({
+    showBox: false
+  });
+
+  const handleBoxToggle = () => setState({ showBox: !state.showBox });
+
 let task=props.task;
-  return(<div className='li' >
+  return(<div className='li' onMouseEnter={handleBoxToggle} onMouseLeave={handleBoxToggle} style={state.showBox?{borderColor:'whitesmoke',fontSize:'20px'}:{borderColor:' rgb(75, 151, 75)'}} >
   <input type="checkbox" value={props.task} 
   onClick={()=>props.toggle(props.task.id)} 
   />

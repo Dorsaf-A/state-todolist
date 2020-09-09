@@ -9,10 +9,13 @@ function InputTodo({inputText,setInputText,add}) {
         let value = event.target.value
         setNewI(value);
     }
+    const initialize =()=>{
+        setNewI('')
+    }
     return (
         <div className='header'>
         <input className='inpt' type='text' value={newI} onChange={myChangeHandler} placeholder='add a new task' ></input>
-        <Button variant="primary" onClick={()=>!newI?alert("You didn't write the task"): add(newI)}>Add</Button>
+        <Button variant="primary" onClick={()=>!newI?alert("You didn't write the task"): add(newI) } onClickCapture={initialize} >Add</Button>
         </div>
     )
 }
